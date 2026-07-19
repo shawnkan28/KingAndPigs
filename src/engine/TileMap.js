@@ -7,6 +7,8 @@ import { Spritesheet } from "./Spritesheet.js";
  * Know the sheet — reference to the terrain Spritesheet
  * Render — for each non-empty cell, getTile(id) and drawImage at col * tileW, row * tileH
  * Optional helpers — get(col, row), set(col, row, id), isSolid(col, row) when you add collision
+ * 
+ * THIS MIGHT BE CONSUMING TOO MUCH RESOURCES!
  */
 
 export class TileMap {
