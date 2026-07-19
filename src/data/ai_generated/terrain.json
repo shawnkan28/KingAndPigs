@@ -1,0 +1,290 @@
+{
+  "name": "Terrain",
+  "source": "Terrain (32x32).png",
+  "pack": "Kings and Pigs (Pixel Frog)",
+  "image": {
+    "width": 608,
+    "height": 416,
+    "format": "RGBA"
+  },
+  "tileSize": {
+    "width": 32,
+    "height": 32
+  },
+  "grid": {
+    "columns": 19,
+    "rows": 13
+  },
+  "notes": [
+    "Two identical mixed-terrain themes stacked vertically (47 tiles each).",
+    "Empty padding cells are fully transparent.",
+    "Purple void fill (#3F3851) is opaque and part of the wall interior terrain.",
+    "Designed for mixed autotiling: stone wall face vs purple/brick interior."
+  ],
+  "terrains": [
+    {
+      "id": "stone",
+      "label": "Stone wall face",
+      "description": "Large peach/pink stone blocks forming outer wall and platform faces"
+    },
+    {
+      "id": "void",
+      "label": "Purple void / brick interior",
+      "description": "Opaque purple fill and brick interior used as the second mixed-terrain type",
+      "color": "#3F3851"
+    }
+  ],
+  "themes": [
+    {
+      "id": "warm",
+      "label": "Warm peach / orange stone",
+      "gridOffset": { "col": 0, "row": 0 },
+      "pixelOffset": { "x": 0, "y": 0 },
+      "tileCount": 47
+    },
+    {
+      "id": "muted",
+      "label": "Muted pink stone",
+      "gridOffset": { "col": 0, "row": 6 },
+      "pixelOffset": { "x": 0, "y": 192 },
+      "tileCount": 47
+    }
+  ],
+  "clusters": [
+    {
+      "id": "ring_3x3",
+      "role": "thick_wall_ring",
+      "description": "Hollow 3x3 wall ring with purple interior",
+      "grid": { "col": 1, "row": 1 },
+      "size": { "cols": 3, "rows": 3 },
+      "tileCount": 9,
+      "rect": { "x": 32, "y": 32, "w": 96, "h": 96 }
+    },
+    {
+      "id": "vertical_1x3",
+      "role": "vertical_wall_strip",
+      "description": "Vertical wall segment",
+      "grid": { "col": 5, "row": 1 },
+      "size": { "cols": 1, "rows": 3 },
+      "tileCount": 3,
+      "rect": { "x": 160, "y": 32, "w": 32, "h": 96 }
+    },
+    {
+      "id": "horizontal_3x1",
+      "role": "horizontal_wall_strip",
+      "description": "Horizontal wall segment",
+      "grid": { "col": 1, "row": 5 },
+      "size": { "cols": 3, "rows": 1 },
+      "tileCount": 3,
+      "rect": { "x": 32, "y": 160, "w": 96, "h": 32 }
+    },
+    {
+      "id": "single_1x1",
+      "role": "isolated_block",
+      "description": "Isolated 1x1 wall block (place manually for autotile)",
+      "grid": { "col": 5, "row": 5 },
+      "size": { "cols": 1, "rows": 1 },
+      "tileCount": 1,
+      "rect": { "x": 160, "y": 160, "w": 32, "h": 32 }
+    },
+    {
+      "id": "detail_a",
+      "role": "irregular_window",
+      "description": "Irregular brick opening with lit window",
+      "grid": { "col": 7, "row": 1 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 4,
+      "rect": { "x": 224, "y": 32, "w": 64, "h": 64 }
+    },
+    {
+      "id": "detail_b",
+      "role": "caps_sparse_window",
+      "description": "Stone caps with sparse bricks and window",
+      "grid": { "col": 7, "row": 4 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 4,
+      "rect": { "x": 224, "y": 128, "w": 64, "h": 64 }
+    },
+    {
+      "id": "detail_c",
+      "role": "fragmented_edge",
+      "description": "Fragmented / broken edge pieces",
+      "grid": { "col": 10, "row": 1 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 4,
+      "rect": { "x": 320, "y": 32, "w": 64, "h": 64 }
+    },
+    {
+      "id": "detail_d",
+      "role": "side_columns_window",
+      "description": "Vertical side columns with center window",
+      "grid": { "col": 10, "row": 4 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 4,
+      "rect": { "x": 320, "y": 128, "w": 64, "h": 64 }
+    },
+    {
+      "id": "detail_e",
+      "role": "brick_fill_window",
+      "description": "Brick fill with window (tilable-looking)",
+      "grid": { "col": 13, "row": 1 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 4,
+      "rect": { "x": 416, "y": 32, "w": 64, "h": 64 }
+    },
+    {
+      "id": "detail_f",
+      "role": "framed_border",
+      "description": "Framed stone border with brick fill and center stones",
+      "grid": { "col": 13, "row": 4 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 4,
+      "rect": { "x": 416, "y": 128, "w": 64, "h": 64 }
+    },
+    {
+      "id": "detail_g",
+      "role": "incomplete_corner",
+      "description": "Incomplete 2x2 corner (missing top-right cell)",
+      "grid": { "col": 16, "row": 1 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 3,
+      "occupiedCells": [
+        { "col": 16, "row": 1 },
+        { "col": 16, "row": 2 },
+        { "col": 17, "row": 2 }
+      ],
+      "emptyCells": [
+        { "col": 17, "row": 1 }
+      ],
+      "rect": { "x": 512, "y": 32, "w": 64, "h": 64 }
+    },
+    {
+      "id": "detail_h",
+      "role": "bordered_cross",
+      "description": "Full bordered 2x2 with center cross / window",
+      "grid": { "col": 16, "row": 4 },
+      "size": { "cols": 2, "rows": 2 },
+      "tileCount": 4,
+      "rect": { "x": 512, "y": 128, "w": 64, "h": 64 }
+    }
+  ],
+  "tiles": [
+    { "id": 0, "theme": "warm", "cluster": "ring_3x3", "col": 1, "row": 1, "x": 32, "y": 32 },
+    { "id": 1, "theme": "warm", "cluster": "ring_3x3", "col": 2, "row": 1, "x": 64, "y": 32 },
+    { "id": 2, "theme": "warm", "cluster": "ring_3x3", "col": 3, "row": 1, "x": 96, "y": 32 },
+    { "id": 3, "theme": "warm", "cluster": "ring_3x3", "col": 1, "row": 2, "x": 32, "y": 64 },
+    { "id": 4, "theme": "warm", "cluster": "ring_3x3", "col": 2, "row": 2, "x": 64, "y": 64 },
+    { "id": 5, "theme": "warm", "cluster": "ring_3x3", "col": 3, "row": 2, "x": 96, "y": 64 },
+    { "id": 6, "theme": "warm", "cluster": "ring_3x3", "col": 1, "row": 3, "x": 32, "y": 96 },
+    { "id": 7, "theme": "warm", "cluster": "ring_3x3", "col": 2, "row": 3, "x": 64, "y": 96 },
+    { "id": 8, "theme": "warm", "cluster": "ring_3x3", "col": 3, "row": 3, "x": 96, "y": 96 },
+
+    { "id": 9, "theme": "warm", "cluster": "vertical_1x3", "col": 5, "row": 1, "x": 160, "y": 32 },
+    { "id": 10, "theme": "warm", "cluster": "vertical_1x3", "col": 5, "row": 2, "x": 160, "y": 64 },
+    { "id": 11, "theme": "warm", "cluster": "vertical_1x3", "col": 5, "row": 3, "x": 160, "y": 96 },
+
+    { "id": 12, "theme": "warm", "cluster": "horizontal_3x1", "col": 1, "row": 5, "x": 32, "y": 160 },
+    { "id": 13, "theme": "warm", "cluster": "horizontal_3x1", "col": 2, "row": 5, "x": 64, "y": 160 },
+    { "id": 14, "theme": "warm", "cluster": "horizontal_3x1", "col": 3, "row": 5, "x": 96, "y": 160 },
+
+    { "id": 15, "theme": "warm", "cluster": "single_1x1", "col": 5, "row": 5, "x": 160, "y": 160 },
+
+    { "id": 16, "theme": "warm", "cluster": "detail_a", "col": 7, "row": 1, "x": 224, "y": 32 },
+    { "id": 17, "theme": "warm", "cluster": "detail_a", "col": 8, "row": 1, "x": 256, "y": 32 },
+    { "id": 18, "theme": "warm", "cluster": "detail_a", "col": 7, "row": 2, "x": 224, "y": 64 },
+    { "id": 19, "theme": "warm", "cluster": "detail_a", "col": 8, "row": 2, "x": 256, "y": 64 },
+
+    { "id": 20, "theme": "warm", "cluster": "detail_b", "col": 7, "row": 4, "x": 224, "y": 128 },
+    { "id": 21, "theme": "warm", "cluster": "detail_b", "col": 8, "row": 4, "x": 256, "y": 128 },
+    { "id": 22, "theme": "warm", "cluster": "detail_b", "col": 7, "row": 5, "x": 224, "y": 160 },
+    { "id": 23, "theme": "warm", "cluster": "detail_b", "col": 8, "row": 5, "x": 256, "y": 160 },
+
+    { "id": 24, "theme": "warm", "cluster": "detail_c", "col": 10, "row": 1, "x": 320, "y": 32 },
+    { "id": 25, "theme": "warm", "cluster": "detail_c", "col": 11, "row": 1, "x": 352, "y": 32 },
+    { "id": 26, "theme": "warm", "cluster": "detail_c", "col": 10, "row": 2, "x": 320, "y": 64 },
+    { "id": 27, "theme": "warm", "cluster": "detail_c", "col": 11, "row": 2, "x": 352, "y": 64 },
+
+    { "id": 28, "theme": "warm", "cluster": "detail_d", "col": 10, "row": 4, "x": 320, "y": 128 },
+    { "id": 29, "theme": "warm", "cluster": "detail_d", "col": 11, "row": 4, "x": 352, "y": 128 },
+    { "id": 30, "theme": "warm", "cluster": "detail_d", "col": 10, "row": 5, "x": 320, "y": 160 },
+    { "id": 31, "theme": "warm", "cluster": "detail_d", "col": 11, "row": 5, "x": 352, "y": 160 },
+
+    { "id": 32, "theme": "warm", "cluster": "detail_e", "col": 13, "row": 1, "x": 416, "y": 32 },
+    { "id": 33, "theme": "warm", "cluster": "detail_e", "col": 14, "row": 1, "x": 448, "y": 32 },
+    { "id": 34, "theme": "warm", "cluster": "detail_e", "col": 13, "row": 2, "x": 416, "y": 64 },
+    { "id": 35, "theme": "warm", "cluster": "detail_e", "col": 14, "row": 2, "x": 448, "y": 64 },
+
+    { "id": 36, "theme": "warm", "cluster": "detail_f", "col": 13, "row": 4, "x": 416, "y": 128 },
+    { "id": 37, "theme": "warm", "cluster": "detail_f", "col": 14, "row": 4, "x": 448, "y": 128 },
+    { "id": 38, "theme": "warm", "cluster": "detail_f", "col": 13, "row": 5, "x": 416, "y": 160 },
+    { "id": 39, "theme": "warm", "cluster": "detail_f", "col": 14, "row": 5, "x": 448, "y": 160 },
+
+    { "id": 40, "theme": "warm", "cluster": "detail_g", "col": 16, "row": 1, "x": 512, "y": 32 },
+    { "id": 41, "theme": "warm", "cluster": "detail_g", "col": 16, "row": 2, "x": 512, "y": 64 },
+    { "id": 42, "theme": "warm", "cluster": "detail_g", "col": 17, "row": 2, "x": 544, "y": 64 },
+
+    { "id": 43, "theme": "warm", "cluster": "detail_h", "col": 16, "row": 4, "x": 512, "y": 128 },
+    { "id": 44, "theme": "warm", "cluster": "detail_h", "col": 17, "row": 4, "x": 544, "y": 128 },
+    { "id": 45, "theme": "warm", "cluster": "detail_h", "col": 16, "row": 5, "x": 512, "y": 160 },
+    { "id": 46, "theme": "warm", "cluster": "detail_h", "col": 17, "row": 5, "x": 544, "y": 160 },
+
+    { "id": 47, "theme": "muted", "cluster": "ring_3x3", "col": 1, "row": 7, "x": 32, "y": 224 },
+    { "id": 48, "theme": "muted", "cluster": "ring_3x3", "col": 2, "row": 7, "x": 64, "y": 224 },
+    { "id": 49, "theme": "muted", "cluster": "ring_3x3", "col": 3, "row": 7, "x": 96, "y": 224 },
+    { "id": 50, "theme": "muted", "cluster": "ring_3x3", "col": 1, "row": 8, "x": 32, "y": 256 },
+    { "id": 51, "theme": "muted", "cluster": "ring_3x3", "col": 2, "row": 8, "x": 64, "y": 256 },
+    { "id": 52, "theme": "muted", "cluster": "ring_3x3", "col": 3, "row": 8, "x": 96, "y": 256 },
+    { "id": 53, "theme": "muted", "cluster": "ring_3x3", "col": 1, "row": 9, "x": 32, "y": 288 },
+    { "id": 54, "theme": "muted", "cluster": "ring_3x3", "col": 2, "row": 9, "x": 64, "y": 288 },
+    { "id": 55, "theme": "muted", "cluster": "ring_3x3", "col": 3, "row": 9, "x": 96, "y": 288 },
+
+    { "id": 56, "theme": "muted", "cluster": "vertical_1x3", "col": 5, "row": 7, "x": 160, "y": 224 },
+    { "id": 57, "theme": "muted", "cluster": "vertical_1x3", "col": 5, "row": 8, "x": 160, "y": 256 },
+    { "id": 58, "theme": "muted", "cluster": "vertical_1x3", "col": 5, "row": 9, "x": 160, "y": 288 },
+
+    { "id": 59, "theme": "muted", "cluster": "horizontal_3x1", "col": 1, "row": 11, "x": 32, "y": 352 },
+    { "id": 60, "theme": "muted", "cluster": "horizontal_3x1", "col": 2, "row": 11, "x": 64, "y": 352 },
+    { "id": 61, "theme": "muted", "cluster": "horizontal_3x1", "col": 3, "row": 11, "x": 96, "y": 352 },
+
+    { "id": 62, "theme": "muted", "cluster": "single_1x1", "col": 5, "row": 11, "x": 160, "y": 352 },
+
+    { "id": 63, "theme": "muted", "cluster": "detail_a", "col": 7, "row": 7, "x": 224, "y": 224 },
+    { "id": 64, "theme": "muted", "cluster": "detail_a", "col": 8, "row": 7, "x": 256, "y": 224 },
+    { "id": 65, "theme": "muted", "cluster": "detail_a", "col": 7, "row": 8, "x": 224, "y": 256 },
+    { "id": 66, "theme": "muted", "cluster": "detail_a", "col": 8, "row": 8, "x": 256, "y": 256 },
+
+    { "id": 67, "theme": "muted", "cluster": "detail_b", "col": 7, "row": 10, "x": 224, "y": 320 },
+    { "id": 68, "theme": "muted", "cluster": "detail_b", "col": 8, "row": 10, "x": 256, "y": 320 },
+    { "id": 69, "theme": "muted", "cluster": "detail_b", "col": 7, "row": 11, "x": 224, "y": 352 },
+    { "id": 70, "theme": "muted", "cluster": "detail_b", "col": 8, "row": 11, "x": 256, "y": 352 },
+
+    { "id": 71, "theme": "muted", "cluster": "detail_c", "col": 10, "row": 7, "x": 320, "y": 224 },
+    { "id": 72, "theme": "muted", "cluster": "detail_c", "col": 11, "row": 7, "x": 352, "y": 224 },
+    { "id": 73, "theme": "muted", "cluster": "detail_c", "col": 10, "row": 8, "x": 320, "y": 256 },
+    { "id": 74, "theme": "muted", "cluster": "detail_c", "col": 11, "row": 8, "x": 352, "y": 256 },
+
+    { "id": 75, "theme": "muted", "cluster": "detail_d", "col": 10, "row": 10, "x": 320, "y": 320 },
+    { "id": 76, "theme": "muted", "cluster": "detail_d", "col": 11, "row": 10, "x": 352, "y": 320 },
+    { "id": 77, "theme": "muted", "cluster": "detail_d", "col": 10, "row": 11, "x": 320, "y": 352 },
+    { "id": 78, "theme": "muted", "cluster": "detail_d", "col": 11, "row": 11, "x": 352, "y": 352 },
+
+    { "id": 79, "theme": "muted", "cluster": "detail_e", "col": 13, "row": 7, "x": 416, "y": 224 },
+    { "id": 80, "theme": "muted", "cluster": "detail_e", "col": 14, "row": 7, "x": 448, "y": 224 },
+    { "id": 81, "theme": "muted", "cluster": "detail_e", "col": 13, "row": 8, "x": 416, "y": 256 },
+    { "id": 82, "theme": "muted", "cluster": "detail_e", "col": 14, "row": 8, "x": 448, "y": 256 },
+
+    { "id": 83, "theme": "muted", "cluster": "detail_f", "col": 13, "row": 10, "x": 416, "y": 320 },
+    { "id": 84, "theme": "muted", "cluster": "detail_f", "col": 14, "row": 10, "x": 448, "y": 320 },
+    { "id": 85, "theme": "muted", "cluster": "detail_f", "col": 13, "row": 11, "x": 416, "y": 352 },
+    { "id": 86, "theme": "muted", "cluster": "detail_f", "col": 14, "row": 11, "x": 448, "y": 352 },
+
+    { "id": 87, "theme": "muted", "cluster": "detail_g", "col": 16, "row": 7, "x": 512, "y": 224 },
+    { "id": 88, "theme": "muted", "cluster": "detail_g", "col": 16, "row": 8, "x": 512, "y": 256 },
+    { "id": 89, "theme": "muted", "cluster": "detail_g", "col": 17, "row": 8, "x": 544, "y": 256 },
+
+    { "id": 90, "theme": "muted", "cluster": "detail_h", "col": 16, "row": 10, "x": 512, "y": 320 },
+    { "id": 91, "theme": "muted", "cluster": "detail_h", "col": 17, "row": 10, "x": 544, "y": 320 },
+    { "id": 92, "theme": "muted", "cluster": "detail_h", "col": 16, "row": 11, "x": 512, "y": 352 },
+    { "id": 93, "theme": "muted", "cluster": "detail_h", "col": 17, "row": 11, "x": 544, "y": 352 }
+  ]
+}
