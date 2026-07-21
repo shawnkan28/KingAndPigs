@@ -13,9 +13,10 @@ export class Spritesheet {
   }
 
   getTile(path) {
-    const entry = this.#lookup(path);
+    let entry = this.#lookup(path);
     if (!entry || entry.x == null || entry.y == null) {
-      throw new Error(`retrieving Meta Data: missing tile: ${path}`);
+      // throw new Error(`retrieving Meta Data: missing tile: ${path}`);
+      entry = this.#lookup("outerCornerWalls.midMid");
     }
 
     const [tw, th] = this.metaData.cellSize ?? [32, 32];

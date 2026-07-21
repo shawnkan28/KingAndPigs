@@ -1,6 +1,6 @@
 import { Entity } from "./engine/Entity.js";
 import { TILE_DATA } from "./data/tiles.js";
-import { LEVEL_1 } from "./data/level1.js";
+import { LEVEL_1 } from "./data/levels.js";
 import { TileMap } from "./engine/TileMap.js";
 
 const canvas = document.getElementById("game-canvas");
