@@ -7,8 +7,8 @@ const canvas = document.getElementById("game-canvas");
 const screen = canvas.getContext("2d");
 
 // Resolution
-canvas.width = TILE_DATA.cellSize[0] * 32; // 1024
-canvas.height = TILE_DATA.cellSize[1] * 18; // 576
+canvas.width = TILE_DATA.cellSize[0] * 18; // 1024
+canvas.height = TILE_DATA.cellSize[1] * 10; // 576
 const map = new TileMap({
   path: "./src/assets/tiles/Terrain (32x32).png",
   metaData: TILE_DATA,

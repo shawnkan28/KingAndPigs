@@ -5,43 +5,36 @@
 // Pig is an entVy spawn, not a tile — see SPAWNS below.
 
 const V = "outerCornerWalls.midMid"; // void / purple fill
-// const VL = "innerWalls.topLeft";
-// const V = "innerWalls.topMid";
-// const VR = "innerWalls.topRight";
-// const IL = "innerWalls.midLeft";
-// const IM = "innerWalls.midMid";
-// const IR = "innerWalls.midRight";
-// const IBL = "innerWalls.botLeft";
-// const IB = "innerWalls.botMid";
-// const IBR = "innerWalls.botRight";
-// const FL = "outerHorizProtrudes.left"; // tan platform
-// const FT = "outerHorizProtrudes.mid";
-// const FR = "outerHorizProtrudes.right";
-// const FV = "outerVertProtrudes.mid"; // tan vertical step
-// const W = "decorations.window"; // TODO: add to metadata
-// const D = "objects.door"; // TODO: add to metadata
-// const B = "objects.box"; // TODO: add to metadata
+const OW = ["outerCornerWalls.topMid", "outerCornerWalls.botMid", 
+            "outerCornerWalls.midLeft", "outerCornerWalls.midRight"]; // outer wall
+const OC = ["outerEdgeWalls.topRight", "outerEdgeWalls.topLeft", 
+            "outerEdgeWalls.botRight", "outerEdgeWalls.botLeft"]; // Outer corner wall
+const IC = ["outerCornerWalls.topLeft", "outerCornerWalls.topRight", 
+            "outerCornerWalls.botLeft", "outerCornerWalls.botRight"]; // Inner corner;
+const IW = ["innerWalls.topLeft", "innerWalls.topMid", "innerWalls.topRight",
+            "innerWalls.midLeft", "innerWalls.midMid", "innerWalls.midRight",
+            "innerWalls.botLeft", "innerWalls.botMid", "innerWalls.botRight"];
 
 // prettier-ignore
 export const LEVEL_1 = [
   // 0 - 10 cols
   [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
   // 1 —
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OC[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OW[0],  OC[1],  V],
   // 2 — 
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OW[2],  IW[0],  IW[1],  IW[1],  IW[1],  IW[1],  IW[1],  IW[1],  IW[1],  IW[1],  IW[1],  IW[1],  IW[1],  IW[2],  OW[3],  V],
   // 3 — 
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OW[2],  IW[3],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[5],  OW[3],  V],
   // 4
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OW[2],  IW[3],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[4],  IW[5],  OW[3],  V],
   // 5 — 
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OW[2],  IW[3],  IW[4],  IW[4],  IW[4],  V,  IW[7],  IW[7],  IW[7],  IW[7],  IW[7],  IW[7],  IW[7],  IW[8],  OW[3],  V],
   // 6 — 
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OW[2],  IW[3],  IW[4],  IW[4],  IW[4],  IW[5],  IC[3],  OW[1],  OW[1],  OW[1],  OW[1],  OW[1],  OW[1],  OW[1],  OC[3],  V],
   // 7 —
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OW[2],  IW[6],  IW[7],  IW[7],  IW[7],  IW[8],  OW[3],  V,  V,  V,  V,  V,  V,  V,  V,  V],
   // 8 —
-  [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
+  [V,  V,  OC[2],  OW[1],  OW[1],  OW[1],  OW[1],  OW[1],  OC[3],  V,  V,  V,  V,  V,  V,  V,  V,  V],
   // 9 — void
   [V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V,  V],
 ];
