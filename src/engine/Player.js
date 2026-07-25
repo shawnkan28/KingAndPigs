@@ -22,6 +22,9 @@ export class Player extends SpriteEntity {
 
     this.#applyInput();
 
+    const moving = this.vx !== 0;
+    this.setAction(moving ? "run" : "idle");
+
     // The moveAndCollide already performs the update for the x/y axis so no need to run super.update();
     const { hitGround } = moveAndCollide(this, dt, this.map.getCollisionMap());
     this.onGround = hitGround;

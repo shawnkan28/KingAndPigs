@@ -29,8 +29,19 @@ export const KING_HUMAN = {
     },
     run: {
       file: "Run (78x58).png",
-      frames: 8,
       loop: true,
+      // hitbox = body only (excludes hammer), relative to frame top-left
+      // anchor = feet center (varies slightly with run stride)
+      frames: [
+        { x: 0,   y: 0, width: 78, height: 58, hitbox: { x: 24, y: 18, width: 22, height: 24 }, anchor: { x: 35, y: 42 } },
+        { x: 78,  y: 0, width: 78, height: 58, hitbox: { x: 24, y: 16, width: 22, height: 25 }, anchor: { x: 35, y: 41 } },
+        { x: 156, y: 0, width: 78, height: 58, hitbox: { x: 24, y: 17, width: 22, height: 25 }, anchor: { x: 35, y: 42 } },
+        { x: 234, y: 0, width: 78, height: 58, hitbox: { x: 24, y: 20, width: 22, height: 24 }, anchor: { x: 35, y: 44 } },
+        { x: 312, y: 0, width: 78, height: 58, hitbox: { x: 24, y: 18, width: 22, height: 25 }, anchor: { x: 35, y: 43 } },
+        { x: 390, y: 0, width: 78, height: 58, hitbox: { x: 24, y: 16, width: 22, height: 26 }, anchor: { x: 35, y: 42 } },
+        { x: 468, y: 0, width: 78, height: 58, hitbox: { x: 24, y: 17, width: 22, height: 26 }, anchor: { x: 35, y: 43 } },
+        { x: 546, y: 0, width: 78, height: 58, hitbox: { x: 24, y: 20, width: 22, height: 24 }, anchor: { x: 35, y: 44 } },
+      ],
     },
     jump: {
       file: "Jump (78x58).png",

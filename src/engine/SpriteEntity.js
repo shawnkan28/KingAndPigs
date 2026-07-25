@@ -38,6 +38,15 @@ export class SpriteEntity extends Entity {
     );
   }
 
+  setAction(action){
+    if(this.action === action) return ;
+
+    this.action = action;
+    this.frame = 0;
+    this.#updateMetaData();
+    console.log(this.x);
+  }
+
   // Update purely animation. Not updating the x/y coordinates
   updateAnimation(dt) {
     this.frameTime += dt;
