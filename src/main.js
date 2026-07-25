@@ -1,5 +1,6 @@
 import { Entity } from "./engine/Entity.js";
 import { TILE_DATA } from "./data/tiles.js";
+import { KING } from "./data/human.js";
 import { LEVEL_1 } from "./data/levels.js";
 import { TileMap } from "./engine/TileMap.js";
 import { Input } from "./engine/Input.js";
@@ -25,6 +26,7 @@ const map = new TileMap({
 const player = new Player({
   input: input,
   map: map,
+  metaData: KING,
   x: TILE_DATA.cellSize[0] * 3,
   y: TILE_DATA.cellSize[1] * 2
 });

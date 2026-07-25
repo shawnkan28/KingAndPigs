@@ -4,12 +4,24 @@ export class Spritesheet {
   constructor(options = {}) {
     this.img = new Image();
     this.img.src = options.path ?? "";
-    this.metaData = options.metaData ?? {};
+    this.frameData = options.frameData ?? {};
     this.loaded = false;
-
+    this.cellSize = options.cellSize ?? [0, 0];
     this.img.onload = () => {
       this.loaded = true;
     };
+  }
+
+  getFrame(action, index = 0){
+    return new Sprite({
+      sheet: this.img,
+      sx: this.frameData[index].x,
+      sy: this.frameData[index].y,
+      sw: this.frameData[index].w,
+      sh: this.frameData[index].h,
+      ax: this.frameData[index]["anchor"].x,
+      ay: this.frameData[index]['anchor'].y
+    });
   }
 
   getTile(path) {
@@ -19,7 +31,7 @@ export class Spritesheet {
       entry = this.#lookupTile("1.1.5");
     }
 
-    const [tw, th] = this.metaData.cellSize ?? [32, 32];
+    const [tw, th] = this.cellSize;
     return new Sprite({
       sheet: this.img,
       sx: entry.x,
@@ -37,7 +49,7 @@ export class Spritesheet {
       .split(".")
       .reduce(
         (node, key) => (node == null ? undefined : node[key]),
-        this.metaData,
+        this.frameData,
       );
   }
 }

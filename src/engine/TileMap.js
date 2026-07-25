@@ -21,7 +21,8 @@ export class TileMap {
     this.showBox = options.showBox ?? false;
     this.spriteSheet = new Spritesheet({
       path: this.path,
-      metaData: this.metaData,
+      frameData: this.metaData,
+      cellSize: this.metaData.cellSize
     });
     this.mapSheet = this.#drawMap();
     this.solidMap = this.#setCollisionMap();
