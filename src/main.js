@@ -2,6 +2,8 @@ import { Entity } from "./engine/Entity.js";
 import { TILE_DATA } from "./data/tiles.js";
 import { LEVEL_1 } from "./data/levels.js";
 import { TileMap } from "./engine/TileMap.js";
+import { Input } from "./engine/Input.js";
+import { Player } from "./engine/Player.js";
 
 // INIT
 const canvas = document.getElementById("game-canvas");
@@ -11,11 +13,20 @@ const SHOWBOXES = true;
 // Resolution
 canvas.width = TILE_DATA.cellSize[0] * 18; // 1024
 canvas.height = TILE_DATA.cellSize[1] * 10; // 576
+
+// Classes initialized
+const input = new Input();
 const map = new TileMap({
   path: "./src/assets/tiles/Terrain (32x32).png",
   metaData: TILE_DATA,
   mapData: LEVEL_1,
-  showBox: SHOWBOXES
+  showBox: SHOWBOXES,
+});
+const player = new Player({
+  input: input,
+  map: map,
+  x: TILE_DATA.cellSize[0] * 3,
+  y: TILE_DATA.cellSize[1] * 4
 });
 
 let lastTime = 0;
@@ -27,7 +38,11 @@ function render(now) {
   screen.fillRect(0, 0, canvas.width, canvas.height);
 
   // Add Scene here
+  input.update();
   map.render(screen);
+
+  player.update(dt);
+  player.render(screen);
 
   screen.font = "20px arial";
   screen.fillStyle = "white";
