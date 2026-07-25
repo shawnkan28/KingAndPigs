@@ -38,11 +38,11 @@ function render(now) {
   screen.fillRect(0, 0, canvas.width, canvas.height);
 
   // Add Scene here
-  input.update();
   map.render(screen);
 
   player.update(dt);
   player.render(screen);
+  input.update();
 
   screen.font = "20px arial";
   screen.fillStyle = "white";
