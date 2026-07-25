@@ -1,3 +1,4 @@
+import { Entity } from "./Entity.js";
 import { Spritesheet } from "./Spritesheet.js";
 
 /**
@@ -7,13 +8,14 @@ import { Spritesheet } from "./Spritesheet.js";
  * Know the sheet — reference to the terrain Spritesheet
  * Render — for each non-empty cell, getTile(id) and drawImage at col * tileW, row * tileH
  * Optional helpers — get(col, row), set(col, row, id), isSolid(col, row) when you add collision
- * 
+ *
  * THIS MIGHT BE CONSUMING TOO MUCH RESOURCES!
  */
 
 export class TileMap {
   constructor(options = {}) {
     this.path = options.path ?? "";
+    this.color = options.color ?? "rgba(255, 0, 0, 0.5)";
     this.metaData = options.metaData ?? {};
     this.mapData = options.mapData ?? {};
     this.showBox = options.showBox ?? false;
@@ -21,41 +23,54 @@ export class TileMap {
       path: this.path,
       metaData: this.metaData,
     });
+    this.mapSheet = this.#drawMap();
+    this.solidMap = this.#setCollisionMap();
   }
 
   render(screen) {
     if (!this.spriteSheet.loaded) return;
 
-    const mapSheet = this.#drawMap();
+    // const mapSheet = this.#drawMap();
 
     let rowNo = 0;
-    mapSheet.forEach((row) => {
+    this.mapSheet.forEach((row) => {
       let colNo = 0;
       row.forEach((sprite) => {
         const x = sprite.sw * colNo;
         const y = sprite.sh * rowNo;
         this.#drawImg(screen, sprite, x, y);
+
+        if (this.showBox) {
+          // if value is 0 means not solid, else its a solid
+          const val = this.solidMap[rowNo][colNo];
+          if(val > 0){
+            const entity = new Entity({x: x, y: y, w: sprite.sw, h: sprite.sh});
+            entity.render(screen);
+          }
+        }
         colNo++;
       });
       rowNo++;
     });
+  }
 
-    // let colNo = 0;
-    // mapSheet[0].forEach((sprite) => {
-    //     const x = sprite.sw * colNo;
+  getCollisionMap() {
+    return this.solidMap;
+  }
 
-    //     colNo++;
-    // })
-    // mapSheet.forEach((row) => {
-    //   let colNo = 0;
-    //   row.forEach((sprite) => {
-    //     const x = sprite.sw * colNo;
-    //     const y = sprite.sy * rowNo;
-    //     this.#drawImg(screen, sprite, x, y);
-    //     colNo++;
-    //   });
-    //   rowNo++;
-    // });
+  #setCollisionMap() {
+    const solidMap = [];
+    let rowNo = 0;
+    this.mapData.forEach((row) => {
+      let colNo = 0;
+      const solidRow = [];
+      row.forEach((val) => {
+        const isSolid = this.spriteSheet.isSolidTile(val);
+        solidRow.push(isSolid ? 255 : 0);
+      });
+      solidMap.push(solidRow);
+    });
+    return solidMap;
   }
 
   #drawMap() {

@@ -5,15 +5,15 @@ export const TILE_DATA = {
   1: {
     1: {
       desc: "row 1, first set of tiles",
-      1: { x: 32, y: 32 }, // spritesheet topLeft
-      2: { x: 64, y: 32 }, // spritesheet TopMid
-      3: { x: 96, y: 32 }, // spritesheet TopRight
-      4: { x: 32, y: 64 }, // spritesheet midLeft
+      1: { x: 32, y: 32, isSolid: true }, // spritesheet topLeft
+      2: { x: 64, y: 32, isSolid: true }, // spritesheet TopMid
+      3: { x: 96, y: 32, isSolid: true }, // spritesheet TopRight
+      4: { x: 32, y: 64, isSolid: true }, // spritesheet midLeft
       5: { x: 64, y: 64 }, // spritesheet midMid
-      6: { x: 96, y: 64 }, // spritesheet midRight
-      7: { x: 32, y: 96 }, // spritesheet botLeft
-      8: { x: 64, y: 96 }, // spritesheet botMid
-      9: { x: 96, y: 96 }, // spritesheet botRight
+      6: { x: 96, y: 64, isSolid: true }, // spritesheet midRight
+      7: { x: 32, y: 96, isSolid: true }, // spritesheet botLeft
+      8: { x: 64, y: 96, isSolid: true }, // spritesheet botMid
+      9: { x: 96, y: 96, isSolid: true }, // spritesheet botRight
     },
     2: {
       desc: "row 1, second set of tiles",
@@ -23,10 +23,10 @@ export const TILE_DATA = {
     },
     3: {
       desc: "row 1, third set of tiles",
-      1: { x: 224, y: 32 },
-      2: { x: 256, y: 32 },
-      3: { x: 224, y: 64 },
-      4: { x: 256, y: 64 },
+      1: { x: 224, y: 32, isSolid: true },
+      2: { x: 256, y: 32, isSolid: true },
+      3: { x: 224, y: 64, isSolid: true },
+      4: { x: 256, y: 64, isSolid: true },
     },
     4: {
       desc: "row 1, forth set of tiles",

@@ -3,8 +3,10 @@ import { TILE_DATA } from "./data/tiles.js";
 import { LEVEL_1 } from "./data/levels.js";
 import { TileMap } from "./engine/TileMap.js";
 
+// INIT
 const canvas = document.getElementById("game-canvas");
 const screen = canvas.getContext("2d");
+const SHOWBOXES = true;
 
 // Resolution
 canvas.width = TILE_DATA.cellSize[0] * 18; // 1024
@@ -13,6 +15,7 @@ const map = new TileMap({
   path: "./src/assets/tiles/Terrain (32x32).png",
   metaData: TILE_DATA,
   mapData: LEVEL_1,
+  showBox: SHOWBOXES
 });
 
 let lastTime = 0;
