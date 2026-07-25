@@ -1,6 +1,6 @@
 import { SpriteEntity } from "./SpriteEntity.js";
-import { Input } from "./Input.js";
 import { applyGravity } from "./Physics.js";
+import { moveAndCollide } from "./Collision.js";
 
 export class Player extends SpriteEntity {
   constructor(options = {}) {
@@ -15,8 +15,8 @@ export class Player extends SpriteEntity {
   update(dt) {
     applyGravity(this, dt);
 
+    const { hitGround } = moveAndCollide(this, dt, this.map.getCollisionMap());
     
-
     super.update(dt);
   }
 }

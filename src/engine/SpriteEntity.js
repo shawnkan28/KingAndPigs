@@ -6,4 +6,13 @@ export class SpriteEntity extends Entity{
 
         this.color = options.color ?? "rgba(0, 255, 0, 1)";
     }
+
+    getCollisionBounds(){
+        return {
+            x: this.x,
+            y: this.y,
+            w: this.w,
+            h: this.h
+        };
+    }
 }

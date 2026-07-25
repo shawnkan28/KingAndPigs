@@ -26,7 +26,7 @@ const player = new Player({
   input: input,
   map: map,
   x: TILE_DATA.cellSize[0] * 3,
-  y: TILE_DATA.cellSize[1] * 4
+  y: TILE_DATA.cellSize[1] * 2
 });
 
 let lastTime = 0;

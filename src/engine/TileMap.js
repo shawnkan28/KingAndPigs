@@ -30,8 +30,6 @@ export class TileMap {
   render(screen) {
     if (!this.spriteSheet.loaded) return;
 
-    // const mapSheet = this.#drawMap();
-
     let rowNo = 0;
     this.mapSheet.forEach((row) => {
       let colNo = 0;
@@ -39,26 +37,25 @@ export class TileMap {
         const x = sprite.sw * colNo;
         const y = sprite.sh * rowNo;
         this.#drawImg(screen, sprite, x, y);
-
-        if (this.showBox) {
-          // if value is 0 means not solid, else its a solid
-          const val = this.solidMap[rowNo][colNo];
-          if(val > 0){
-            const entity = new Entity({x: x, y: y, w: sprite.sw, h: sprite.sh});
-            entity.render(screen);
-          }
-        }
         colNo++;
       });
       rowNo++;
     });
+    if (this.showBox) {
+      this.solidMap.forEach((entity) => {
+        screen.fillStyle = "rgba(0, 0, 255, 0.5)";
+        screen.fillRect(entity.x, entity.y, entity.w, entity.h);
+      });
+    }
   }
 
   getCollisionMap() {
     return this.solidMap;
   }
-
   #setCollisionMap() {
+    const w = this.metaData.cellSize[0];
+    const h = this.metaData.cellSize[1];
+
     const solidMap = [];
     let rowNo = 0;
     this.mapData.forEach((row) => {
@@ -66,10 +63,16 @@ export class TileMap {
       const solidRow = [];
       row.forEach((val) => {
         const isSolid = this.spriteSheet.isSolidTile(val);
-        solidRow.push(isSolid ? 255 : 0);
+        if (isSolid) {
+          const x = w * colNo;
+          const y = h * rowNo;
+          solidMap.push({ x: x, y: y, w: w, h: h });
+        }
+        colNo += 1;
       });
-      solidMap.push(solidRow);
+      rowNo += 1;
     });
+
     return solidMap;
   }
 
