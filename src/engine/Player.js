@@ -13,6 +13,8 @@ export class Player extends SpriteEntity {
     this.vel = options.vel ?? 100;
     this.onGround = options.onGround ?? false;
     this.jumpSpeed = options.jumpSpeed ?? JUMP_SPEED;
+    this.showHitbox = options.showHitbox ?? false;
+    this.color = options.color ?? "rgba(0,255,0, 0.5)";
   }
 
   update(dt) {
@@ -25,6 +27,11 @@ export class Player extends SpriteEntity {
     this.onGround = hitGround;
 
     super.updateAnimation(dt);
+  }
+
+  render(screen){
+    super.render(screen);
+    if(this.showHitbox) super.drawHitbox(screen);
   }
 
   #applyInput(){

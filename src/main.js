@@ -28,7 +28,8 @@ const player = new Player({
   map: map,
   metaData: KING,
   x: TILE_DATA.cellSize[0] * 3,
-  y: TILE_DATA.cellSize[1] * 2
+  y: TILE_DATA.cellSize[1] * 2,
+  showHitbox: SHOWBOXES
 });
 
 let lastTime = 0;
