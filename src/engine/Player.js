@@ -22,12 +22,12 @@ export class Player extends SpriteEntity {
 
     this.#applyInput();
 
-    const action = this.#determineAction();
-    this.setAction(action);
-
     // The moveAndCollide already performs the update for the x/y axis so no need to run super.update();
     const { hitGround } = moveAndCollide(this, dt, this.map.getCollisionMap());
     this.onGround = hitGround;
+
+    const action = this.#determineAction();
+    this.setAction(action);
 
     super.updateAnimation(dt);
   }
@@ -56,10 +56,15 @@ export class Player extends SpriteEntity {
   #determineAction() {
     let action = "";
 
+    // Land Animations
     const moving = this.vx !== 0;
     this.isFlip = this.vx < 0;
     const landAction = moving ? "run" : "idle";
 
-    return this.onGround ? landAction : "jump";
+    // Air Animations
+    const falling = this.vy < 0;
+    const airAction = falling ? "fall" : "jump";
+
+    return this.onGround ? landAction : airAction;
   }
 }
