@@ -31,5 +31,29 @@ export const KING = {
             { x: 468, y: 0, w: 78, h: 58, hitbox: { x: 24, y: 17, w: 22, h: 26 }, anchor: { x: 35, y: 43 } },
             { x: 546, y: 0, w: 78, h: 58, hitbox: { x: 24, y: 20, w: 22, h: 24 }, anchor: { x: 35, y: 44 } },
         ]
+    },
+    jump: {
+        fps: 14,
+        loop: false,
+        path: "./src/assets/King Human/Jump (78x58).png",
+        frames: [
+            { x: 0, y: 0, w: 78, h: 58, hitbox: { x: 24, y: 15, w: 22, h: 29 }, anchor: { x: 35, y: 44 } },
+        ]
+    },
+    fall: {
+        fps: 14,
+        loop: false,
+        path: "./src/assets/King Human/Fall (78x58).png",
+        frames: [
+            { x: 0, y: 0, w: 78, h: 58, hitbox: { x: 24, y: 15, w: 22, h: 29 }, anchor: { x: 35, y: 44 } },
+        ]
+    },
+    ground: {
+        fps: 14,
+        loop: false,
+        path: "./src/assets/King Human/Ground (78x58).png",
+        frames: [
+            { x: 0, y: 0, w: 78, h: 58, hitbox: { x: 24, y: 20, w: 22, h: 24 }, anchor: { x: 35, y: 44 } },
+        ]
     }
 }

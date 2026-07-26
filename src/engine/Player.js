@@ -22,9 +22,8 @@ export class Player extends SpriteEntity {
 
     this.#applyInput();
 
-    const moving = this.vx !== 0;
-    this.isFlip = this.vx < 0;
-    this.setAction(moving ? "run" : "idle");
+    const action = this.#determineAction();
+    this.setAction(action);
 
     // The moveAndCollide already performs the update for the x/y axis so no need to run super.update();
     const { hitGround } = moveAndCollide(this, dt, this.map.getCollisionMap());
@@ -33,22 +32,34 @@ export class Player extends SpriteEntity {
     super.updateAnimation(dt);
   }
 
-  render(screen){
+  render(screen) {
     super.render(screen);
-    if(this.showHitbox) super.drawHitbox(screen);
+    if (this.showHitbox) super.drawHitbox(screen);
   }
 
-  #applyInput(){
+  #applyInput() {
     this.vx = 0;
-    
+
     // JUMP
     const jumpPressed = this.input.isKeyPressed("Space");
-    if(jumpPressed && this.onGround){
+    if (jumpPressed && this.onGround) {
       this.vy = this.jumpSpeed;
       this.onGround = false;
     }
 
-    if(this.input.isKeyDown("ArrowLeft") || this.input.isKeyDown("KeyA")) this.vx = -this.vel;
-    if(this.input.isKeyDown("ArrowRight") || this.input.isKeyDown("KeyD")) this.vx = this.vel;
+    if (this.input.isKeyDown("ArrowLeft") || this.input.isKeyDown("KeyA"))
+      this.vx = -this.vel;
+    if (this.input.isKeyDown("ArrowRight") || this.input.isKeyDown("KeyD"))
+      this.vx = this.vel;
+  }
+
+  #determineAction() {
+    let action = "";
+
+    const moving = this.vx !== 0;
+    this.isFlip = this.vx < 0;
+    const landAction = moving ? "run" : "idle";
+
+    return this.onGround ? landAction : "jump";
   }
 }
