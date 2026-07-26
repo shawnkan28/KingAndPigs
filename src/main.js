@@ -9,7 +9,7 @@ import { Player } from "./engine/Player.js";
 // INIT
 const canvas = document.getElementById("game-canvas");
 const screen = canvas.getContext("2d");
-const SHOWBOXES = false;
+const SHOWBOXES = true;
 
 // Resolution
 canvas.width = TILE_DATA.cellSize[0] * 18; // 1024
